@@ -258,8 +258,7 @@ export class GcodeGenerationViewModel extends ViewModel {
       if (tab.enabled()) {
         // Bloat tab geometry by the cutter radius
         const bloat = App.models.Tool.cutterDiameter.toUnits("integer") / 2;
-        const tg = tab.combinedGeometry.offset(bloat);
-        tabGeometry = tabGeometry.union(tg);
+        tabGeometry = tabGeometry.union(tab.getOffsetCombinedGeometry(bloat));
       }
     }
 

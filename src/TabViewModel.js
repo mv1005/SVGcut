@@ -103,6 +103,15 @@ export class TabViewModel extends ViewModel {
   }
 
   /**
+   * Return combined geometry from this tab offset by the given value.
+   * Used in final gcode generation.
+   * @param {number} offset offset applied to tab geometry
+   */
+  getOffsetCombinedGeometry(offset) {
+    return this.#combinedGeometry.offset(offset);
+  }
+
+  /**
    * (Re)generate combinedGeometry from the paths associated with this
    * operation (this.#tabPaths)
    */
